@@ -14,7 +14,7 @@ KnowledgeMart is an innovative platform for buying and selling second-hand educa
 
 - **Referral and Wallet System:** Users can earn referral rewards and manage wallet balances, providing an incentive-driven experience.
 
-- **Exciting Offers and Coupons:** Users enjoy product discounts, seasonal offers, and redeemable coupons that make learning materials even more affordable.
+- **Exciting Offers and Coupons:** Users enjoy product discounts, seasonal offers, and redeemable coupons that make learning materials even more affordable. 
 
 - **Payment Integration:** Integrated with Razorpay for secure and seamless order payments.
 
