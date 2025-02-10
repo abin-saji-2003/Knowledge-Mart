@@ -1,10 +1,12 @@
 package main
 
 import (
-	database "knowledgeMart/config"
-	"knowledgeMart/routes"
+	"fmt"
 	"os"
 	"time"
+
+	database "knowledgeMart/config"
+	"knowledgeMart/routes"
 
 	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
@@ -14,8 +16,8 @@ func main() {
 	database.ConnectDB()
 
 	config := cors.Config{
-		AllowOrigins:     []string{"http://example.com"},
-		AllowMethods:     []string{"GET", "POST", "PUT"},
+		AllowOrigins:     []string{"*"},
+		AllowMethods:     []string{"GET", "POST", "PUT", "DELETE"},
 		AllowHeaders:     []string{"Origin", "Content-Type", "Authorization"},
 		AllowCredentials: true,
 		MaxAge:           12 * time.Hour,
@@ -31,7 +33,8 @@ func main() {
 		port = "8080"
 	}
 
-	err := router.Run(":" + port)
+	fmt.Println("Server running on port:", port)
+	err := router.Run("0.0.0.0:" + port)
 	if err != nil {
 		panic(err)
 	}

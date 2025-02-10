@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: knowledgemart-backend
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: knowledgemart-backend
+  template:
+    metadata:
+      labels:
+        app: knowledgemart-backend
+    spec:
+      containers:
+        - name: knowledgemart-backend
+          image: abinsaji/knowledgemart-backend:v1.0 
+          ports:
+            - containerPort: 8080
+          env:
+            - name: DB_HOST
+              value: "postgres-service.default.svc.cluster.local"
+            - name: DB_PORT
+              value: "5432" 
+            - name: DB_USER
+              value: "postgres"
+            - name: DB_PASSWORD
+              value: "123456"
+            - name: DB_NAME
+              value: "knowledgemart"
