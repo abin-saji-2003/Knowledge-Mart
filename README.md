@@ -1,6 +1,6 @@
 # Knowledge-Mart
 
-KnowledgeMart is an innovative platform for buying and selling second-hand educational items and sharing study notes, built using Go, the Gin framework, PostgreSQL, AWS, and Cloudinary for note storage. This platform enables users to search for products, manage their profiles, order items, upload and view notes, and much more. The API architecture is thoughtfully designed, with dedicated routes for users, sellers, and admins to ensure a seamless experience for each group
+KnowledgeMart is an innovative platform for buying and selling second-hand educational items and sharing study notes, built using Go, the Gin framework, PostgreSQL, AWS, and Docker & Kubernetes for containerization and orchestration. Cloudinary is used for note storage. This platform enables users to search for products, manage their profiles, order items, upload and view notes, and much more. The API architecture is containerized and efficiently managed with Kubernetes, ensuring scalability and smooth deployment. It includes dedicated routes for users, sellers, and admins to provide a seamless experience for each group.
 
 ## Key Features
 
@@ -21,6 +21,8 @@ KnowledgeMart is an innovative platform for buying and selling second-hand educa
 - **Efficient Note Sharing:**  Cloud-based note upload and sharing, supported by Cloudinary, enables easy access to learning materials.
 
 - **Wallet and Transaction History:** Track referral rewards, purchases, and wallet balances for transparency in transactions.
+
+- **Scalable and Containerized Deployment:** The platform is containerized with Docker and deployed using Kubernetes, ensuring efficient scaling, high availability, and seamless updates.
 
 ## Installation
 
@@ -67,6 +69,48 @@ To set up the project locally, follow these steps:
     ```bash
     go run .
     ```
+
+## Run with Docker
+
+ **Using Docker CLI:**
+
+    If your project has docker-compose.yml, you can run:
+
+    ```bash
+    docker-compose up -d
+    ```
+
+## Option 3: Deploy with Kubernetes
+
+1. **Start Minikube (If Running Locally):**
+
+    ```bash
+    minikube start
+    ```
+
+2. **Apply Deployments and Services:**
+
+    ```bash
+    kubectl apply -f k8s/deployment-1.yaml
+    kubectl apply -f k8s/deployment-2.yaml
+    kubectl apply -f k8s/service-1.yaml
+    kubectl apply -f k8s/service-2.yaml
+    ```
+
+3. **Configure Ingress (For Routing Traffic):**
+
+    ```bash
+    kubectl apply -f k8s/ingress.yaml
+    ```
+
+4. ** Verify Deployment:**
+
+    ```bash
+    kubectl get pods
+    kubectl get services
+    kubectl get ingress
+    ```
+
 
 ## API Documentation
 
